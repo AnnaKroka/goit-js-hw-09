@@ -1,3 +1,10 @@
+// Описаний в документації
+import SimpleLightbox from "simplelightbox";
+// Додатковий імпорт стилів
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+
+
 const images = [
     {
       id: 1,
@@ -95,6 +102,15 @@ const imageGallery = images.map(imageInfo => createImageGallery(imageInfo)).join
 const imageGalleryEl = document.querySelector('.gallery');
 
 imageGalleryEl.innerHTML = imageGallery;
+
+
+let gallery = new SimpleLightbox('.gallery a');
+gallery.on('show.simplelightbox', function (ev) {
+	ev.changed.simplelightbox;
+  if (ev.overlay === true) {
+    return `${ev.description}`;
+  }
+});
 
 const onImageGalleryClick = event => {
     event.preventDefault();
