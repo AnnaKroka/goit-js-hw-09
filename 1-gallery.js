@@ -8,5 +8,5 @@ import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                
 			/>
 	</a>
   </li>
-    `,s=a.map(i=>r(i)).join(""),t=document.querySelector(".gallery");t.innerHTML=s;let l=new c(".gallery a");l.on("show.simplelightbox",function(i){if(i.changed.simplelightbox,i.overlay===!0)return`${i.description}`});const g=i=>{if(i.preventDefault(),i.target===i.currentTarget)return;const e=i.target.closest(".gallery-item"),p=Number(e.dataset.id),o=a.find(n=>n.id===p);console.log(o),basicLightbox.create(`<img src="${o.original}" />`).show()};t.addEventListener("click",g);
+    `,s=a.map(i=>r(i)).join(""),t=document.querySelector(".gallery");t.innerHTML=s;let l=new c(".gallery a",{captionsData:"alt",captionDelay:250});l.on("show.simplelightbox",function(){});const g=i=>{if(i.preventDefault(),i.target===i.currentTarget)return;const p=i.target.closest(".gallery-item"),e=Number(p.dataset.id),o=a.find(n=>n.id===e);console.log(o),basicLightbox.create(`<img src="${o.original}" />`).show()};t.addEventListener("click",g);
 //# sourceMappingURL=1-gallery.js.map
