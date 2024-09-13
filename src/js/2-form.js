@@ -7,6 +7,7 @@ let formData = {
     message: '',
 };
 
+
 const fillFormFields = () => {
     const formDataFromLS = JSON.parse(localStorage.getItem('feedback-form-state'));
 
@@ -19,7 +20,10 @@ for (const key in formDataFromLS) {
         feedbackFormEl.elements[key].value = formDataFromLS[key];
     }
 }
+
 };
+
+
 
 const onFormFieldInput = event => {
     const fieldName = event.target.name;
@@ -30,18 +34,20 @@ const onFormFieldInput = event => {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 };  
 
+
 const onFeedbackFormSubmit = event => {
     event.preventDefault();
+
+    if (formData.email.trim() === '' || formData.message.trim() === '') {
+        alert ("Fill please all fields");
+        return;
+    } else {
+        console.log(formData);
+    }
+
     event.target.reset();
     localStorage.removeItem('feedback-form-state');
 
-    if (feedbackEmail.value.trim() === '' || feedbackTextarea.value.trim() === '') {
-            alert ("Fill please all fields");
-            return;
-        } else {
-            console.log(formData);
-            return;
-        }
 };
 
 feedbackFormEl.addEventListener('input', onFormFieldInput);

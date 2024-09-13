@@ -81,6 +81,8 @@ const images = [
   ];
 
 
+
+
 const createImageGallery = image => {
     return `
   <li class="gallery-item">
@@ -103,14 +105,10 @@ const imageGalleryEl = document.querySelector('.gallery');
 
 imageGalleryEl.innerHTML = imageGallery;
 
-
-let gallery = new SimpleLightbox('.gallery a');
-gallery.on('show.simplelightbox', function (ev) {
-	ev.changed.simplelightbox;
-  if (ev.overlay === true) {
-    return `${ev.description}`;
-  }
+let gallery = new SimpleLightbox('.gallery a', {captionsData: 'alt', captionDelay: 250});
+gallery.on('show.simplelightbox', function () {
 });
+
 
 const onImageGalleryClick = event => {
     event.preventDefault();
