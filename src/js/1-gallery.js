@@ -109,23 +109,3 @@ let gallery = new SimpleLightbox('.gallery a', {captionsData: 'alt', captionDela
 gallery.on('show.simplelightbox', function () {
 });
 
-
-const onImageGalleryClick = event => {
-    event.preventDefault();
-    if(event.target === event.currentTarget) {
-        return;
-    }
-
-    const galleryItem = event.target.closest('.gallery-item');
-
-    const imageId = Number(galleryItem.dataset.id);
-
-    const imageOrigin = images.find(image => image.id === imageId);
-
-    console.log(imageOrigin);
-
-
-    const modalInstance = basicLightbox.create(`<img src="${imageOrigin.original}" />`);
-    modalInstance.show();
-
-};
