@@ -38,8 +38,9 @@ const onFeedbackFormSubmit = event => {
         alert ("Fill please all fields");
         } else {
         console.log(formData);
+        event.target.reset();
         }
-    event.target.reset();
+    
     localStorage.removeItem("feedback-form-state");
 }
 
