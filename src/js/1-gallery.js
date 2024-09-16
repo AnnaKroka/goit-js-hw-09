@@ -129,5 +129,3 @@ const onImageGalleryClick = event => {
     modalInstance.show();
 
 };
-
-imageGalleryEl.addEventListener('click', onImageGalleryClick);
